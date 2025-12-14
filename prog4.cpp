@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-class Shape
+class Shapes
 {
 private:
     string color;
@@ -30,13 +30,13 @@ public:
     virtual void displayDetails() = 0;
 };
 
-class Circle : public Shape
+class circle : public Shapes
 {
 private:
     double radius;
 
 public:
-    Circle(double r, string c)
+    circle(double r, string c)
     {
         radius = r;
         setColor(c);
@@ -52,13 +52,13 @@ public:
     }
 };
 
-class Rectangle : public Shape
+class rectangle : public Shapes
 {
 private:
     double length, width;
 
 public:
-    Rectangle(double l, double w, string c)
+    rectangle(double l, double w, string c)
     {
         length = l;
         width = w;
@@ -77,7 +77,7 @@ public:
 
 int main()
 {
-    Shape *shapes[100];
+    Shapes *shapes[100];
     int count = 0;
     int choice;
 
@@ -94,7 +94,7 @@ int main()
             cin >> r;
             cout << "Enter color: ";
             cin >> c;
-            shapes[count++] = new Circle(r, c);
+            shapes[count++] = new circle(r, c);
         }
         else if (choice == 2)
         {
@@ -106,7 +106,7 @@ int main()
             cin >> w;
             cout << "Enter color: ";
             cin >> c;
-            shapes[count++] = new Rectangle(l, w, c);
+            shapes[count++] = new rectangle(l, w, c);
         }
         else if (choice == 3)
         {
